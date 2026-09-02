@@ -1,4 +1,4 @@
-````markdown
+
 # Brain Cancer Classification using Deep Learning
 
 Deep Learning project for the classification of brain MRI images into three categories: **Glioma, Meningioma, and Brain Tumor**.
@@ -35,7 +35,6 @@ Dropout (0.5)
 Softmax
       ↓
 3 Classes
-````
 
 ### Training
 
