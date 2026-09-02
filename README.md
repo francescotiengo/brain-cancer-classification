@@ -21,7 +21,6 @@ Data augmentation techniques include random horizontal flipping, rotation, zoom,
 
 The final model is based on **DenseNet121**, pre-trained on ImageNet.
 
-```text
 Input (200x200)
       ↓
 DenseNet121
@@ -74,11 +73,9 @@ An additional experiment with **Xception** was also performed, while DenseNet121
 
 ## Project Structure
 
-```text
 brain-cancer-classification/
 ├── brainCancerDL.ipynb
 └── README.md
-```
 
 ## How to Run
 
