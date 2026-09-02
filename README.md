@@ -1,112 +1,116 @@
-
 # Brain Cancer Classification using Deep Learning
 
 Deep Learning project for the classification of brain MRI images into three categories: **Glioma, Meningioma, and Brain Tumor**.
 
-The project uses **Transfer Learning** with a pre-trained **DenseNet121** model, combined with data augmentation and a custom classification head.
+The project explores **Transfer Learning** using pre-trained Convolutional Neural Networks, with **DenseNet121** selected as the final model.
 
 ## Dataset
 
-The dataset contains brain MRI images divided into:
+The dataset consists of brain MRI images belonging to three classes:
 
-- **70%** Training
-- **15%** Validation
-- **15%** Test
+- Glioma
+- Meningioma
+- Brain Tumor
 
-Images are resized to **200 × 200 pixels**.
+The dataset is divided into:
 
-Data augmentation techniques include random horizontal flipping, rotation, zoom, and contrast adjustment.
+| Set | Percentage |
+|---|---:|
+| Training | 70% |
+| Validation | 15% |
+| Test | 15% |
+
+All images are resized to **200 × 200 pixels**.
+
+### Data Augmentation
+
+The training images are augmented using:
+
+- Random horizontal flip
+- Random rotation
+- Random zoom
+- Random contrast
 
 ## Model
 
-The final model is based on **DenseNet121**, pre-trained on ImageNet.
+The final model uses **DenseNet121**, pre-trained on **ImageNet**, as the backbone.
 
-Input (200x200)
-      ↓
-DenseNet121
-      ↓
-Global Average Pooling
-      ↓
-Dense (256, ReLU)
-      ↓
-Dropout (0.5)
-      ↓
-Softmax
-      ↓
-3 Classes
+The classification architecture is:
 
-### Training
+**Input → DenseNet121 → Global Average Pooling → Dense (256, ReLU) → Dropout (0.5) → Softmax**
 
-| Parameter     | Value                           |
-| ------------- | ------------------------------- |
-| Backbone      | DenseNet121                     |
-| Optimizer     | AdamW                           |
-| Learning Rate | 0.0001                          |
-| Batch Size    | 32                              |
-| Epochs        | 20                              |
-| Loss          | Sparse Categorical Crossentropy |
-| Dropout       | 0.5                             |
+The model performs multi-class classification across the three target categories.
 
-Early stopping and learning-rate reduction are used during training.
+## Training
+
+| Parameter | Value |
+|---|---|
+| Backbone | DenseNet121 |
+| Pre-trained on | ImageNet |
+| Image size | 200 × 200 |
+| Optimizer | AdamW |
+| Learning rate | 0.0001 |
+| Batch size | 32 |
+| Maximum epochs | 20 |
+| Loss function | Sparse Categorical Crossentropy |
+| Dropout | 0.5 |
+
+**Early Stopping** and **Learning Rate Reduction** are used during training to improve model performance and reduce overfitting.
 
 ## Results
 
-The final model achieved:
+The final model was evaluated on the independent test set.
 
-| Metric            |     Result |
-| ----------------- | ---------: |
+| Metric | Result |
+|---|---:|
 | **Test Accuracy** | **90.68%** |
-| **Test Loss**     | **0.2235** |
+| **Test Loss** | **0.2235** |
 
-An additional experiment with **Xception** was also performed, while DenseNet121 was selected as the final model.
+An additional experiment with **Xception** was performed during the development of the project. DenseNet121 was selected as the final model.
 
 ## Technologies
 
-* Python
-* TensorFlow / Keras
-* NumPy
-* Pandas
-* Matplotlib
-* KaggleHub
-* Split-Folders
-* Google Colab / Jupyter Notebook
+- Python
+- TensorFlow / Keras
+- NumPy
+- Pandas
+- Matplotlib
+- KaggleHub
+- Split-Folders
+- Google Colab / Jupyter Notebook
 
 ## Project Structure
-'''text
-brain-cancer-classification/
-├── brainCancerDL.ipynb
-└── README.md
-'''
+
+- `brainCancerDL.ipynb` — Main Jupyter Notebook containing the complete analysis, model development, training, and evaluation.
+- `README.md` — Project documentation.
+
 ## How to Run
 
-The notebook can be executed using **Google Colab** or **Jupyter Notebook**.
+The notebook can be run using **Google Colab** or **Jupyter Notebook**.
 
-Install the required libraries if necessary:
+Install the required libraries with:
 
-```bash
-pip install tensorflow kagglehub split-folders pandas numpy matplotlib
-```
+`pip install tensorflow kagglehub split-folders pandas numpy matplotlib`
 
 Then open `brainCancerDL.ipynb` and execute the cells sequentially.
+
+The notebook handles dataset preparation, preprocessing, model creation, training, evaluation, and visualization of the results.
 
 ## Future Work
 
 Possible improvements include:
 
-* Fine-tuning DenseNet121
-* Comparing additional architectures
-* Computing precision, recall, and F1-score
-* Generating a confusion matrix
-* Applying Grad-CAM for model explainability
-* Hyperparameter optimization
+- Fine-tuning the DenseNet121 backbone
+- Comparing additional pre-trained architectures
+- Evaluating precision, recall, and F1-score
+- Generating a confusion matrix
+- Applying Grad-CAM for model explainability
+- Performing hyperparameter optimization
 
 ## Disclaimer
 
-This project is intended for **educational and research purposes only**. The model is not a certified medical device and should not be used for medical diagnosis or clinical decisions.
+This project is intended for **educational and research purposes only**. The model is not a certified medical device and its predictions should not be used for medical diagnosis or clinical decisions.
 
 ## Author
 
-Francesco Tiengo
-
-```
-```
+**Francesco Tiengo**
