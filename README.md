@@ -72,11 +72,11 @@ An additional experiment with **Xception** was also performed, while DenseNet121
 * Google Colab / Jupyter Notebook
 
 ## Project Structure
-
+'''text
 brain-cancer-classification/
 ├── brainCancerDL.ipynb
 └── README.md
-
+'''
 ## How to Run
 
 The notebook can be executed using **Google Colab** or **Jupyter Notebook**.
